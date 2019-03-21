@@ -1,0 +1,12 @@
+{
+    "*.ts{,x}": [
+        "prettier --write",
+        "stylelint",
+        "yarn lint:ts",
+        "git add"
+    ],
+    "*.{json,js,jsx,md,yml,yaml}": [
+        "prettier --write",
+        "git add"
+    ]
+}

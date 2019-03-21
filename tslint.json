@@ -1,0 +1,72 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-consistent-codestyle",
+    "tslint-immutable/all",
+    "tslint-sonarts",
+    "tslint-config-airbnb",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "import-name": false,
+    "no-expression-statement": false,
+    "interface-name": false,
+    "no-if-statement": false,
+    // We need classes at least for the redux actions
+    "no-class": false,
+    "typedef": false,
+    "no-console": { "severity": "warning" },
+    "no-implicit-dependencies": [true, "dev"],
+    // Sonar rules
+    "cognitive-complexity": { "severity": "warning" },
+    "max-union-size": { "severity": "warning" },
+    "no-all-duplicated-branches": { "severity": "warning" },
+    "no-big-function": { "severity": "warning" },
+    "no-commented-code": { "severity": "warning" },
+    "no-dead-store": { "severity": "warning" },
+    "no-duplicate-string": { "severity": "warning" },
+    "no-duplicated-branches": { "severity": "warning" },
+    "no-element-overwrite": { "severity": "warning" },
+    "no-empty-destructuring": { "severity": "warning" },
+    "no-extra-semicolon": { "severity": "warning" },
+    "no-gratuitous-expressions": { "severity": "warning" },
+    "no-identical-functions": { "severity": "warning" },
+    "no-ignored-return": { "severity": "warning" },
+    "no-invalid-await": { "severity": "warning" },
+    "no-inverted-boolean-check": { "severity": "warning" },
+    "no-multiline-string-literals": { "severity": "warning" },
+    "no-nested-template-literals": { "severity": "warning" },
+    "no-redundant-boolean": { "severity": "warning" },
+    "no-small-switch": { "severity": "warning" },
+    "no-undefined-argument": { "severity": "warning" },
+    "no-use-of-empty-return-value": { "severity": "warning" },
+    "no-useless-cast": { "severity": "warning" },
+    "no-useless-intersection": { "severity": "warning" },
+    "parameters-max-number": { "severity": "warning" },
+    "prefer-optional": { "severity": "warning" },
+    "use-type-alias": { "severity": "warning" },
+
+    "naming-convention": [
+      true,
+      {
+        "type": "functionVariable",
+        "modifiers": ["export", "const"],
+        "format": ["camelCase", "PascalCase"]
+      },
+      {
+        "type": "parameter",
+        "modifiers": "unused",
+        "leadingUnderscore": "allow"
+      },
+      { "type": "member", "modifiers": "private", "leadingUnderscore": "require" },
+      { "type": "member", "modifiers": "protected", "leadingUnderscore": "require" },
+      { "type": "method", "filter": "^toJSON$", "format": null },
+      { "type": "property", "modifiers": ["public", "static", "const"], "format": "UPPER_CASE" },
+      { "type": "type", "format": "PascalCase" },
+      { "type": "class", "modifiers": "abstract", "prefix": "Abstract" },
+      { "type": "genericTypeParameter", "prefix": "T" },
+      { "type": "enumMember", "format": "PascalCase" }
+    ]
+  }
+}
