@@ -1,7 +1,7 @@
 {
   "hooks": {
     "pre-commit": "concurrently --raw --kill-others-on-fail lint-staged yarn:test:types",
-    "pre-push": "concurrently --raw --kill-others-on-fail yarn:code-format:validate yarn:test",
+    "pre-push": "concurrently --raw --kill-others-on-fail yarn:code-format:validate \"yarn:test --no-watch\"",
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   }
 }
