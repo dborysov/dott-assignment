@@ -13,3 +13,8 @@ export const Eye = styled(Logo)`
   height: 2rem;
   width: 2rem;
 `;
+
+export const Button = styled.button`
+  position: absolute;
+  right: 1rem;
+`;

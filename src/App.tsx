@@ -3,13 +3,13 @@ import { useCamera } from './hooks/useCamera';
 import { usePoseNet } from './hooks/usePoseNet';
 import { usePoses } from './hooks/usePoses';
 import { useWindowSize } from './hooks/useWindowSize';
-import { Eye, Video } from './styles';
+import { Button, Eye, Video } from './styles';
 import { calculateActualVideoSize } from './utils/calculateActualVideoSize';
 import { calculateKeypointPosition } from './utils/calculateKeypointPosition';
 
 const App: FC = () => {
   const screenSize = useWindowSize();
-  const stream = useCamera();
+  const { stream, selectedCamera, switchCamera } = useCamera();
   const videoRef = useRef<HTMLVideoElement>(null);
   const net = usePoseNet();
   const { leftEye, rightEye } = usePoses(videoRef, stream, net);
@@ -19,7 +19,7 @@ const App: FC = () => {
       // tslint:disable-next-line:no-object-mutation
       videoRef.current.srcObject = stream;
     }
-  }, [stream, videoRef.current]);
+  }, [stream, videoRef.current, selectedCamera]);
 
   const videoSize = calculateActualVideoSize(
     videoRef.current
@@ -33,7 +33,13 @@ const App: FC = () => {
 
   return (
     <>
-      <Video height={screenSize.height} width={screenSize.width} autoPlay={true} ref={videoRef} />
+      <Video
+        autoPlay={true}
+        playsInline={true}
+        height={screenSize.height}
+        width={screenSize.width}
+        ref={videoRef}
+      />
       {[leftEyePosition, rightEyePosition].map(
         (eyePosition, i) =>
           eyePosition && (
@@ -46,6 +52,7 @@ const App: FC = () => {
             />
           ),
       )}
+      <Button onClick={switchCamera}>switch camera</Button>
     </>
   );
 };
