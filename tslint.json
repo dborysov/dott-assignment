@@ -18,6 +18,7 @@
     "typedef": false,
     "no-console": { "severity": "warning" },
     "no-implicit-dependencies": [true, "dev"],
+    "variable-name": false,
     // Sonar rules
     "cognitive-complexity": { "severity": "warning" },
     "max-union-size": { "severity": "warning" },
