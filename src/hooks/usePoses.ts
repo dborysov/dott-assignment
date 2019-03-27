@@ -32,7 +32,7 @@ export const usePoses = (
       }
 
       if (shouldRecalculatePoses) {
-        setTimeout(recalculatePoses);
+        requestAnimationFrame(recalculatePoses);
       }
     };
 
