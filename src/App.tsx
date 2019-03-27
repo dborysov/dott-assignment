@@ -46,10 +46,13 @@ const App: FC = () => {
             <Eye
               key={i}
               style={{
-                left: eyePosition.left,
-                top: eyePosition.top,
+                transform: `translate(${eyePosition.left}px, ${
+                  eyePosition.top
+                }px) translate(-50%, -50%)`,
               }}
-            />
+            >
+              &#x1F441;
+            </Eye>
           ),
       )}
       <Button onClick={switchCamera}>switch camera</Button>
