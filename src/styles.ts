@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ReactComponent as Logo } from './logo.svg';
 
 export const Video = styled.video`
   position: absolute;
@@ -7,11 +6,13 @@ export const Video = styled.video`
   left: 0;
 `;
 
-export const Eye = styled(Logo)`
+export const Eye = styled.div`
   position: absolute;
-  transform: translate(-50%, -50%);
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 3rem;
+  left: 0;
+  top: 0;
 `;
 
 export const Button = styled.button`

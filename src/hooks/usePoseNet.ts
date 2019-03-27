@@ -5,7 +5,7 @@ export const usePoseNet = (): posenet.PoseNet | undefined => {
   const [net, setNet] = useState<posenet.PoseNet>();
 
   useEffect(() => {
-    posenet.load().then(a => setNet(a));
+    posenet.load().then(setNet);
   }, []);
 
   return net;

@@ -12,13 +12,27 @@ export const usePoses = (
     // tslint:disable-next-line:no-let
     let shouldRecalculatePoses = true;
 
-    const recalculatePoses = async () => {
+    const recalculatePoses = () => {
       if (videoRef.current && stream && net) {
-        net.estimateMultiplePoses(videoRef.current, 0.5, false, 16, 1, 0.75).then(setPoses);
+        const imageScaleFactor = 0.5;
+        const flipHorizontal = false;
+        const outputStride = 16;
+        const maxDetections = 1;
+        const nmsRadius = 0.75;
+        net
+          .estimateMultiplePoses(
+            videoRef.current,
+            imageScaleFactor,
+            flipHorizontal,
+            outputStride,
+            maxDetections,
+            nmsRadius,
+          )
+          .then(setPoses);
       }
 
       if (shouldRecalculatePoses) {
-        setTimeout(recalculatePoses, 150);
+        setTimeout(recalculatePoses);
       }
     };
 
